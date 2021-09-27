@@ -6,7 +6,7 @@
     </div>
 </template>
 <script>
-import NavBar from "./components/nav-bar.vue";
+import NavBar from "./components/nav-bar";
 export default {
     components: {
         NavBar
@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import "~materialize-css/dist/css/materialize.min.css";
+/* @import "~materialize-css/dist/css/materialize.min.css"; */
 @import "assets/index.scss";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 @import "~bootstrap/dist/css/bootstrap.css";

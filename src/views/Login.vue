@@ -10,7 +10,7 @@
                     >
                         <b-form-input
                             id="email"
-                            v-model="form.email"
+                            v-model="form.username"
                             type="email"
                             placeholder="Введите email"
                             required
@@ -34,7 +34,7 @@
                     <b-button type="submit" variant="primary">Войти</b-button>
                 </b-form>
                 <b-card class="mt-3" header="Form Data Result">
-                    <pre class="m-0">{{ form }}</pre>
+                    {{ token }}
                 </b-card>
             </div>
         </b-card>
@@ -48,24 +48,34 @@ export default {
     data() {
         return {
             form: {
-                email: "",
+                username: "",
                 password: ""
             },
-            show: true
+            show: true,
+            resp: null,
+            token: null
         };
     },
     methods: {
         onSubmit() {
+            const params = new URLSearchParams();
+            params.append("username", this.form.username);
+            params.append("password", this.form.password);
             axios
-                .post("http://193.123.59.224/api/v1/login/access-token", {
-                    email: this.form.email,
-                    password: this.form.password
-                })
-                .then(response => (this.news = response));
-            alert(JSON.stringify(this.form));
+                .post("http://193.123.59.224/api/v1/login/access-token", params)
+                .then(response => (this.resp = response));
+            this.token = this.resp.data.access_token;
         }
     },
-    mounted() {}
+    mounted() {
+        // function authHeaders(token) {
+        //     return {
+        //         headers: {
+        //             Authorization: `Bearer ${token}`
+        //         }
+        //     };
+        // }
+    }
 };
 </script>
 

@@ -13,6 +13,7 @@
                     id="carousel-1"
                     v-model="slide"
                     :interval="4000"
+                    class="ff"
                     controls
                     indicators
                     background="#ababab"
@@ -22,42 +23,36 @@
                     @sliding-start="onSlideStart"
                     @sliding-end="onSlideEnd"
                 >
-                    <!-- First slide -->
-                    <b-carousel-slide
-                        img-src="https://picsum.photos/1024/480/?image=52"
-                    ></b-carousel-slide>
-
-                    <!-- Second slide -->
-                    <b-carousel-slide
-                        img-src="https://picsum.photos/1024/480/?image=54"
-                    >
-                    </b-carousel-slide>
-
-                    <!-- Three slide -->
-                    <b-carousel-slide
-                        img-src="https://picsum.photos/1024/480/?image=58"
-                    ></b-carousel-slide>
-
                     <!-- Four slide -->
                     <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-                    <b-carousel-slide img-width="100" img-height="100">
+                    <b-carousel-slide>
                         <template #img>
                             <img
-                                class="d-block img-fluid w-100"
-                                img-width="480"
-                                img-height="480"
-                                src="https://picsum.photos/1024/480/?image=54"
+                                class="d-block img-fluid w100 ff"
+                                src="http://nat922.narod.ru/house/iz1_resize.jpg"
                                 alt="image slot"
                             />
                         </template>
                     </b-carousel-slide>
 
-                    <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-                    <b-carousel-slide
-                        caption="Blank Image"
-                        img-blank
-                        img-alt="Blank image"
-                    >
+                    <b-carousel-slide>
+                        <template #img>
+                            <img
+                                class="d-block img-fluid w100 ff"
+                                src="/static/4.jpg"
+                                alt="image slot"
+                            />
+                        </template>
+                    </b-carousel-slide>
+
+                    <b-carousel-slide>
+                        <template #img>
+                            <img
+                                class="d-block img-fluid w100 ff"
+                                src="/static/5.jpg"
+                                alt="image slot"
+                            />
+                        </template>
                     </b-carousel-slide>
                 </b-carousel>
             </div>
@@ -109,7 +104,7 @@ export default {
             slide: 0,
             sliding: null,
             news: null,
-            feedUrl: "https://lenta.ru/rss",
+            feedUrl: "http://lenta.ru/rss",
             name: "",
             limit: 6
         };
@@ -127,7 +122,7 @@ export default {
     },
     mounted() {
         axios
-            .get("https://lenta.ru/rss")
+            .get("http://lenta.ru/rss")
             .then(response => (this.news = response));
     }
 };
@@ -146,5 +141,9 @@ export default {
     margin-top: 2%;
     text-indent: 1%;
     width: 50%;
+}
+.ff {
+    min-height: 480px;
+    margin: auto;
 }
 </style>

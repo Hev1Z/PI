@@ -11,8 +11,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 
+
 Vue.config.productionTip = false;
-Vue.use(BootstrapVue, axios, VueAxios);
+Vue.use(BootstrapVue, axios, VueAxios,);
 new Vue({
   router,
   store,

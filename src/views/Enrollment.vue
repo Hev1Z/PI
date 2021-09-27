@@ -33,18 +33,18 @@
                 <div id="app" class="search">
                     <v-select
                         :options="[
-                            { value: 1, text: 'Zuev HUESOS 2000' },
-                            { value: 2, text: 'Марат' }
+                            { value: 1, text: 'Нефти' },
+                            { value: 2, text: 'Газа' }
                         ]"
                         v-model="selectedValue"
-                        searchable="true"
+                        searchable
                         labelSearchPlaceholder="Введите факультет"
                         labelNotFound="Не найдено "
                         labelTitle="Выберите Факультет"
                     />
                 </div>
 
-                <b-button type="submit" variant="primary">Submit</b-button>
+                <b-button type="submit" variant="primary">Отправить</b-button>
             </b-form>
         </div>
     </div>
@@ -84,4 +84,3 @@ export default {
     margin: 2% 0 2%;
 }
 </style>
-
